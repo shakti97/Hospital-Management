@@ -1,54 +1,26 @@
 import React from 'react';
-
-export class AuthLogin{
-    constructor(){
-        super();
-        this.AdminDetails={UserName:"admin",Password:"admin"};
-        this.UserDetails={};
-        this.handlerInput=this.handlerInput.bind(this);
-        this.Login=this.Login.bind(this);
-
-    }
-    handlerInput(event){
-        event.persist();
-        const name=event.target.name;
-        this.UserDetails={...this.UserDetails,
-                [name] : event.target.value
-        }
-        console.log('UserDetails ', UserDetails);
-
-    }
-    Login(){
-        if(this.UserDetails.UserName==this.AdminDetails.UserName && this.UserDetails.Password==this.AdminDetails.Password){
-            
-        }
-    }
-    render(){
+import '../CSS/LoginForm.css';
+export const AuthLogin=(props)=>{
     return(
         <div>
-            <form>
-                <div class="imgcontainer">
-                    <img src="img_avatar2.png" alt="Avatar" class="avatar"/>
+            <div className="login-form">
+            <form >
+		        <div className="avatar">
+			        <img src="/examples/images/avatar.png" alt="Avatar"/>
+		        </div>
+                <h2 className="text-center">Member Login</h2>   
+                <div className="form-group">
+        	        <input type="text" className="form-control" name="UserName" onChange={props.handlerInput} placeholder="Username" required="required"/>
                 </div>
-
-                <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" name='UserName' onChange={this.handlerInput} placeholder="Enter Username" name="uname" required/>
-
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" name='Password' onChange={this.handlerInput} placeholder="Enter Password" name="psw" required/>
-
-                    <button type="submit" onClick={this.Login}>Login</button>
-                    <label>
-                    <input type="checkbox" checked="checked" name="remember"/> Remember me
-                    </label>
+		        <div className="form-group">
+                    <input type="password" className="form-control" name="Password" 
+                    onChange={props.handlerInput} placeholder="Password" required="required"/>
+                </div>        
+                <div className="form-group">
+                    <button type="submit" onclick={props.login} className="btn btn-primary btn-lg btn-block">Sign in</button>
                 </div>
-
-                <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+		
+            </form>
             </div>
-            </form> 
         </div>
     )}
-}

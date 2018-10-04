@@ -13,4 +13,3 @@ export const Content=(props)=>{
         )
 }
 
-// ageHandler={props.ageHandler} problemHandler={props.problemHandler} prescHandler={props.prescHandler}

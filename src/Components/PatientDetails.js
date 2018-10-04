@@ -18,9 +18,7 @@ export class PatientDetails extends Component{
     }
     //openModal Function is used to handling the logic at the time admin want to update the patient Details
     openModal(event){
-        console.log('this',this);
         var idUpdate=event.target.id;
-        console.log('patientId',idUpdate);
         var pSelected;
         this.state.PatientData.forEach(patient=>{
             if(patient.id==idUpdate){
@@ -28,9 +26,7 @@ export class PatientDetails extends Component{
                 return 0;
             }
         });
-        console.log('patientSelected ',pSelected);
         this.patientDetailsUpdate=pSelected;
-        console.log('patientDetailsUpdate',this.patientDetailsUpdate);
         this.setState({IsModalOpen:true,patientSelected:pSelected});
     }
     //closeModal is responsible for only closing the modal after updating the Details
@@ -47,7 +43,6 @@ export class PatientDetails extends Component{
                 response.json().then(data=>this.setState({PatientData:data},()=>{console.log(this.state);
                     for(let i=1;i<=Math.ceil(this.state.PatientData.length/this.state.PatientPerPage);i++){
                         RenderPageNumbers.push(i);
-                        console.log('RenderPageNumbers +1');
                     }
                     this.setState({PageNumbers:RenderPageNumbers},()=>{console.log('PageNumber ',this.state);});
                     }));
@@ -63,20 +58,16 @@ export class PatientDetails extends Component{
     handlePatient(event){
         event.persist();
         const name=event.target.name;
-        console.log('patientDetailsUpdate',this.patientDetailsUpdate);
         this.patientDetailsUpdate={...this.patientDetailsUpdate,    
             [name] : event.target.value
         }
-        console.log('handlePatient ',this.patientDetailsUpdate);
         }
     
     //Logic to update the patientDetails 
     UpdatePatientDetails(event){
         this.closeModal();
-        console.log('this.patientDetailsUpdate ',this.patientDetailsUpdate);
         var id=this.patientDetailsUpdate.id;
         var object={"PatientName":this.patientDetailsUpdate.PatientName,"PatientAge":this.patientDetailsUpdate.PatientAge,"PatientProblem":this.patientDetailsUpdate.PatientProblem,"PatientPrescription":this.patientDetailsUpdate.PatientPrescription}
-        console.log('object ',object);
         fetch('http://localhost:3000/patients/'+id,{
             method: 'PUT',
             headers :{
@@ -84,7 +75,6 @@ export class PatientDetails extends Component{
                 },
             body : JSON.stringify(object)
         }).then((response)=>{
-            console.log('response',response);
             this.componentWillMount();
             
 

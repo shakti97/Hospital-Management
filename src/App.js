@@ -13,13 +13,11 @@ export class App extends Component{
     this.LoginVerifier=this.LoginVerifier.bind(this);
   }
   handlerInput(event){
-    console.log('handlerInput');
     event.persist();
     const name=event.target.name;
     this.UserDetails={...this.UserDetails,
             [name] : event.target.value
     }
-    console.log('UserDetails ', this.UserDetails);
 
 }
 LoginVerifier(){

@@ -30,7 +30,6 @@ export class Main extends Component {
     //Function to handle the logic of adding the new patient
     newPatientDetails() {
         this.patientObject.PatientId+=1;
-        console.log('new details added');
         fetch('http://localhost:3000/patients',{
              method:'POST',
              headers :{

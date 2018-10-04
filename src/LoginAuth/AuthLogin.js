@@ -6,7 +6,7 @@ export const AuthLogin=(props)=>{
             <div className="login-form">
             <form >
 		        <div className="avatar">
-			        <img src="/examples/images/avatar.png" alt="Avatar"/>
+			        <img src="https://www.globalcincinnati.org/wp-content/uploads/2017/10/icon_membership_individual.png" alt="vatar"/>
 		        </div>
                 <h2 className="text-center">Member Login</h2>   
                 <div className="form-group">
@@ -17,7 +17,7 @@ export const AuthLogin=(props)=>{
                     onChange={props.handlerInput} placeholder="Password" required="required"/>
                 </div>        
                 <div className="form-group">
-                    <button type="submit" onclick={props.login} className="btn btn-primary btn-lg btn-block">Sign in</button>
+                    <button type="submit" onClick={props.login} className="btn btn-primary btn-lg btn-block">Sign in</button>
                 </div>
 		
             </form>

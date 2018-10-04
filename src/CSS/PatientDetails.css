@@ -1,0 +1,12 @@
+.Pagination{
+    display: inline;
+    padding: 2px 5px;
+    border: 1px solid blue;
+}
+.PaginationList{
+    margin: 5px;
+    float: right;
+}
+.Pagination:hover{
+    cursor: pointer;
+}

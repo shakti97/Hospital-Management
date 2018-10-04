@@ -1,0 +1,10 @@
+.MenuBar{
+    border: 1px solid blue;
+    background-color: blue;
+    color: white!important;
+    margin-left: 20px;
+    padding-right: 5%;
+}
+.white{
+    color: white!important;
+}

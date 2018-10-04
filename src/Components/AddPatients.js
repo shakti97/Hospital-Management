@@ -1,5 +1,7 @@
 import React  from 'react';
 import '../CSS/AddPatient.css';
+
+//This Component is Responsible for entering the details of the new Patient
 export const AddPatient=(props)=>{
     console.log('props ',props);
     return(

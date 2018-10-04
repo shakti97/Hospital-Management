@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 
+//This is Home Component DashBoard of the Application
 export class HomePage extends Component{
     render(){
         return (

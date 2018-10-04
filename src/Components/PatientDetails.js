@@ -2,8 +2,9 @@ import React,{Component}  from 'react';
 import '../CSS/PatientDetails.css';
 import Modal from 'react-modal';
 import { AddPatient } from './AddPatients';
-// import {PageNumber} from './PageNumber.js';
 
+
+//This Component Contains the PatientDtails 
 export class PatientDetails extends Component{
     constructor(props){
         super(props);
@@ -15,6 +16,7 @@ export class PatientDetails extends Component{
         this.patientDetailsUpdate={};
         this.handlePatient=this.handlePatient.bind(this);
     }
+    //openModal Function is used to handling the logic at the time admin want to update the patient Details
     openModal(event){
         console.log('this',this);
         var idUpdate=event.target.id;
@@ -31,9 +33,12 @@ export class PatientDetails extends Component{
         console.log('patientDetailsUpdate',this.patientDetailsUpdate);
         this.setState({IsModalOpen:true,patientSelected:pSelected});
     }
+    //closeModal is responsible for only closing the modal after updating the Details
     closeModal(){
         this.setState({IsModalOpen:false});
     }
+
+    //Before the component it is necessary to fetch the details of the PatientDetails 
     componentWillMount(){
         const RenderPageNumbers=[];
         fetch('http://localhost:3000/patients',{
@@ -48,10 +53,13 @@ export class PatientDetails extends Component{
                     }));
         });
     }
+    //responsible for hanlding the pagination
     handlePage(event){
         var page=event.target.id;
         this.setState({CurrentPage: page});
     }
+
+    //responsible for hanlding the userData **Improved the way of re-rendering the component by not directly updating the state at each Change just push all the details in an temporary object and when the user finally submits the details then only use setState copy the whole object in state **
     handlePatient(event){
         event.persist();
         const name=event.target.name;
@@ -61,6 +69,8 @@ export class PatientDetails extends Component{
         }
         console.log('handlePatient ',this.patientDetailsUpdate);
         }
+    
+    //Logic to update the patientDetails 
     UpdatePatientDetails(event){
         this.closeModal();
         console.log('this.patientDetailsUpdate ',this.patientDetailsUpdate);

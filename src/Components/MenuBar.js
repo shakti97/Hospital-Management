@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {Link} from "react-router-dom"; 
 import '../CSS/DashBoard.css';
+
+//This section contains the MenuBar of the DashBoard
 export class MenuBar extends Component{
     render(){
         return (

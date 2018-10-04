@@ -11,15 +11,14 @@ import {
     Footer
 } from '../Components/Footer'
 
+
 export class Main extends Component {
     constructor(props) {
         super(props);
         this.title = 'Hospital Management';
         this.patientObject = {PatientId:25};
     }
-    loginAuth() {
-
-    }
+    //Function responsible for Handling the input when new Patient Details about to enter
     handlerInput(event) {
         event.persist();
         const name = event.target.name;
@@ -28,10 +27,7 @@ export class Main extends Component {
         };
         console.log('patientObject ', this.patientObject);
     }
-
-    getPatientDetails() {
-
-    }
+    //Function to handle the logic of adding the new patient
     newPatientDetails() {
         this.patientObject.PatientId+=1;
         console.log('new details added');
@@ -45,13 +41,7 @@ export class Main extends Component {
                  alert('Patient Added Successfully');
                  })
         }
-    updatePatientDetails() {
-
-    }
-    DeletePatientDetails() {
-
-    }
-    Component
+   
     render() {
         return ( <div className = 'container ' >
             <Header title = {this.title} className = 'row' />

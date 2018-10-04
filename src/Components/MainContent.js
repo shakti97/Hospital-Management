@@ -3,6 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import {HomePage} from './Home.js';
 import {AddPatient} from './AddPatients.js';
 import {PatientDetails} from './PatientDetails.js';
+
+//This Component is responsible for Handling the routes of the application
 export const MainContent =(props)=>{
     
         return (

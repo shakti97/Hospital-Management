@@ -4,7 +4,7 @@ export class HomePage extends Component{
     render(){
         return (
             <div >
-              <span>home Page</span>
+              <img src="//gccontent.blob.core.windows.net/gccontent/blogs/legacy/wijmo/2016/11/01_DynamicDashboard.png" alt="DashBoard"/>
             </div>
         )
     }
